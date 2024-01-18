@@ -42,9 +42,9 @@ class Feed extends Component {
     this.loadPosts();
     const socket = openSocket('http://localhost:8080', {transports: ["websocket"]});
     socket.on('posts', data => {
-      if (data.action === 'create') {
+      if (data.action == 'create') {
         this.addPost(data.post);
-      } else if (data.action === 'update') {
+      } else if (data.action == 'update') {
         this.updatePost(data.post);
       }
     });
